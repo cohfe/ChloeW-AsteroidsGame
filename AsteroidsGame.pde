@@ -1,6 +1,6 @@
 Spaceship ship;
 Star[] myStars;
-ArrayList<Asteroid> asteroids;
+ArrayList <Asteroid> asteroids;
 int screenSize = 1000;
 public void setup()
 {
@@ -10,7 +10,7 @@ public void setup()
   for (int i = 0; i < myStars.length; i++) {
     myStars[i] = new Star((int)(Math.random()*screenSize), (int)(Math.random()*screenSize));
   }
-  asteroids = new ArrayList<Asteroid>();      
+  asteroids = new ArrayList <Asteroid> ();      
   for (int i = 0; i < 10; i++) {               
     asteroids.add(new Asteroid());
   }
