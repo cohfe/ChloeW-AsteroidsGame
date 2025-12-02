@@ -6,17 +6,17 @@ class Asteroid extends Floater {
 
     rotSpeed = Math.random() * 4 - 2;
 
-    corners = (int)(Math.random()*4 + 6);  
+    corners = (int)(Math.random()*4 + 6);
 
     xCorners = new int[corners];
     yCorners = new int[corners];
 
-    float radius = (float)(Math.random()*30 + 20);  
+    float radius = (float)(Math.random()*30 + 20);
 
     for (int i = 0; i < corners; i++) {
       double angle = Math.toRadians(360.0 / corners * i);
 
-      double wobble = 0.6 + Math.random() * 0.8;  
+      double wobble = 0.6 + Math.random() * 0.8;
 
       xCorners[i] = (int)(radius * wobble * Math.cos(angle));
       yCorners[i] = (int)(radius * wobble * Math.sin(angle));
