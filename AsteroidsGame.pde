@@ -45,7 +45,7 @@ public void keyPressed()
   if (key == 'd') {
     ship.turnLeft();
   }
-  if (key == 'u') {
+  if (key == 'a') {
     ship.turnRight();
   }
 }
