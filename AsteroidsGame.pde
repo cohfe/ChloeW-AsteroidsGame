@@ -1,6 +1,6 @@
 Spaceship ship;
 Star[] myStars;
-ArrayList<Asteroid>asteroids = new ArrayList<Asteroid>();
+ArrayList<Asteroid> asteroids = new ArrayList<Asteroid>();
 int screenSize = 1000;
 public void setup()
 {
