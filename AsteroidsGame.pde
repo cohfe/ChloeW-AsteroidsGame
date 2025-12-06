@@ -1,3 +1,5 @@
+boolean gameOver = false;
+boolean youWin = false;
 Spaceship ship;
 Star[] myStars;
 ArrayList<Bullet> bullets = new ArrayList<Bullet>();
@@ -19,26 +21,32 @@ public void setup()
 }
 public void draw()
 {
-  background(0, 0, 0);
-  for (int i = 0; i < myStars.length; i++) {
-    myStars[i].show();
-  }
+  if (gameOver) {
+    displayText("GAME OVER");
+  } else if (youWin) {
+    displayText("YOU WIN");
+  } else {
+    background(0, 0, 0);
+    for (int i = 0; i < myStars.length; i++) {
+      myStars[i].show();
+    }
 
-  for (int i = 0; i < asteroids.size(); i++) {
-    Asteroid a = asteroids.get(i);
-    a.show();
-    a.move();
-  }
+    for (int i = 0; i < asteroids.size(); i++) {
+      Asteroid a = asteroids.get(i);
+      a.show();
+      a.move();
+    }
 
-  ship.show();
-  ship.move();
+    ship.show();
+    ship.move();
 
-  checkAsteroidCollisions();
+    checkAsteroidCollisions();
 
-  for (int i = 0; i < bullets.size(); i++) {
-    Bullet b = bullets.get(i);
-    b.show();
-    b.move();
+    for (int i = 0; i < bullets.size(); i++) {
+      Bullet b = bullets.get(i);
+      b.show();
+      b.move();
+    }
   }
 }
 
@@ -74,20 +82,31 @@ void checkAsteroidCollisions() {
 
         if (dista < b.getSize()) {
           asteroids.remove(i);
+          if (asteroids.size() == 0) {
+            youWin = true;
+          }
           bullets.remove(j);
           return;
         }
       }
+    }
+    double dx = ship.getCenterX() - a.getCenterX();
+    double dy = ship.getCenterY() - a.getCenterY();
+    double dista = Math.sqrt(dx*dx + dy*dy);
 
-
-      double dx = ship.getCenterX() - a.getCenterX();
-      double dy = ship.getCenterY() - a.getCenterY();
-      double dista = Math.sqrt(dx*dx + dy*dy);
-
-      if (dista < 25) {
-        asteroids.remove(i);
-        break;
-      }
+    if (dista < 25) {
+      asteroids.remove(i);
+      gameOver = true;
+      break;
     }
   }
+}
+
+void displayText(String text) {
+  noStroke();
+  fill(0, 0, 0);
+  ellipse(500, 500, 2000, 2000);
+  fill(0, 408, 612);
+  textSize(128);
+  text(text, 180, 500);
 }
