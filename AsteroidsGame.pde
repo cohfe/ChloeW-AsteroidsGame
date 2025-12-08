@@ -27,7 +27,6 @@ public void draw()
     displayText("YOU WIN");
   } else {
     background(0, 0, 0);
-    noStroke;
     for (int i = 0; i < myStars.length; i++) {
       myStars[i].show();
     }
