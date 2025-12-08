@@ -102,7 +102,7 @@ void checkAsteroidCollisions() {
   }
 }
 
-void displayText(String text) {
+void displayText(String textinput) {
   noStroke();
   fill(0, 0, 0);
   ellipse(500, 500, 2000, 2000);
