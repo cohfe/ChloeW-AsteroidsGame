@@ -108,5 +108,5 @@ void displayText(String textinput) {
   ellipse(500, 500, 2000, 2000);
   fill(0, 408, 612);
   textSize(128);
-  text(text, 180, 500);
+  text(textinput, 180, 500);
 }
